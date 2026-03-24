@@ -12,7 +12,7 @@ class Book (BaseModel):
     title : str
     author : str
     year : int = Field (..., gt = 1000, le = 2100) #... means no default value 
-    availbale : bool
+    available : bool
 
 #save the books in []
 books_library = []
@@ -40,7 +40,7 @@ def create_book(book : Book):
         title = book.title,
         author = book.author,
         year = book.year,
-        availbale = book.available
+        available = book.available
     )
     books_library.append(new_book)
     book_id_counter += 1
