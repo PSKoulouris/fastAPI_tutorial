@@ -1,7 +1,9 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, EmailStr
 
-
+##############################################################################################
+##############################################################################################
+#Create Book class 
 class BookBase(BaseModel):
     title : str = Field(..., min_length=1, max_length=200)
     author : str = Field(...,min_length=1, max_length=100)
@@ -16,3 +18,14 @@ class BookCreate(BookBase):
 class BookRead(BookBase):
     id : int 
     cover_image : Optional[str] = None #Upgraded later
+
+##############################################################################################
+##############################################################################################
+#Create User class 
+
+class UserBase(BaseModel):
+    username : str = Field(..., min_length=3, max_length=50)
+    email : EmailStr
+    password : str = Field(..., min_length=6)
+    role : str = Field(..., default = "User")
+

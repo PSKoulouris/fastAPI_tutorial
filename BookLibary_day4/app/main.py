@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from .config import settings
-from app.core.database import create_db_and_tables
+from app.core.database import create_db_and_tables_sync
 from app.routers.books import router as books_router
 
 
@@ -12,7 +12,7 @@ app = FastAPI(
 
 @app.on_event("startup") #This became old could become unfunctional at any time
 def on_startup():
-    create_db_and_tables()
+    create_db_and_tables_sync()
 
 app.include_router(books_router)
 

@@ -9,3 +9,4 @@ class Book(SQLModel, table = True): #By convention also could be named: Tabel_Bo
     description : Optional[str] = None
     published_year : int
     cover_image : Optional[str] = None
+
