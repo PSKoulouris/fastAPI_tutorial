@@ -20,4 +20,5 @@ def get_sync_session():
     #    yield session  
     with Session(engine) as session:
         yield session #yield is used to return the session without terminating the action like Return does.
+
         

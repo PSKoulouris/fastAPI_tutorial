@@ -49,6 +49,10 @@ async def get_book_endpoint(
     session : Session = Depends(get_sync_session)
 ):
     book = get_book_by_id(session, book_id)
+    if not book:
+        raise HTTPException(status_code=404, detail="Book not found")
+    
+    return book
 
 @router.put("/{book_id}", response_model=BookRead, status_code=200)
 async def update_book_endpoint(
