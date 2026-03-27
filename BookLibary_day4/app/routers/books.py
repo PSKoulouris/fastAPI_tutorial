@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, BackgroundTasks, HTTPException
-from sqlmodel.ext.asyncio import AsyncSession #Session #completed cycle in core.database.py
+from sqlmodel.ext.asyncio.session import AsyncSession #Session #completed cycle in core.database.py
 
 from typing import List
 

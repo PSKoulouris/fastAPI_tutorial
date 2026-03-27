@@ -1,5 +1,5 @@
 from sqlmodel import select #Session
-from sqlmodel.ext.asyncio import AsyncSession
+from sqlmodel.ext.asyncio.session import AsyncSession
 
 from app.models.book import Book
 from app.schemas.book import BookCreate, BookRead
