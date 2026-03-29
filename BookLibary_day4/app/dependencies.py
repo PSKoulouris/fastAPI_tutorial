@@ -8,7 +8,9 @@ from typing import Dict
 from app.core.security import decode_access_token
 from app.models.user import User
 from app.core.database import get_async_session
-
+###################################################################################################
+###################################################################################################
+###################################################################################################
 def pagination(
     skip: int = Query(0, ge=0, description="Number of records to skip"),
     limit: int = Query(10, ge=1, le=100, description="Max number of records to return")
@@ -33,7 +35,8 @@ def book_filters(
         "max_year": max_year
     }
 
-
+###################################################################################################
+###################################################################################################
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/token")
 async def get_current_user(
@@ -83,4 +86,7 @@ async def get_current_admin(
             detail = "Admin access only"
         )
     return current_user
+
+###################################################################################################
+###################################################################################################
     
