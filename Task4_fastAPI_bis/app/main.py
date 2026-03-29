@@ -1,15 +1,35 @@
 from fastapi import FastAPI
 from app.config import settings
-from app.routers import users, items
+from app.routers import users, items, book
+
+from app.core.database import create_db_and_tables
+
 #########################################################################################
 ########################################################################################
+
 app = FastAPI(
     title ="XBoost",
     description = "Xboost model to diagnose and prognose",
     version = "1.00"
 )
+
 ########################################################################################
 ########################################################################################
+
+@app.on_event("startup")
+def on_startup():
+    create_db_and_tables()
+
+########################################################################################
+########################################################################################
+
+
+app.include_router(users.router)
+app.include_router(items.router)
+app.include_router(book.router)
+
+##########################################################################################
+##########################################################################################
 
 @app.get("/welcome")
 def homeRoute():
@@ -51,7 +71,4 @@ def read_config():
         "api-key": settings.api_key
     }
 ############################################################################################################
-#Exercice 3: Refactor routes with APIRouter()
-
-app.include_router(users.router)
-app.include_router(items.router)
+############################################################################################################
