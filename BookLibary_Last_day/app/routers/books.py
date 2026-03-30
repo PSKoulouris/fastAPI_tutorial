@@ -71,7 +71,7 @@ async def create_book_endpoint(
     isbn : str = Form(..., min_length=10, max_length=13),
     published_year : int = Form(..., ge=1500),
     description : Optional[str] = Form(None, max_length=1000),
-    cover : UploadFile = File(...)
+    cover : UploadFile = File(...),
 ):
 
     #CRUD folder, required to simplify the code structure!
@@ -89,7 +89,7 @@ async def create_book_endpoint(
         isbn = isbn,
         published_year= published_year,
         description=description,
-        cover_image = f"/covers/{filename}"
+        cover_image = f"/covers/{filename}",
     )
 
     db_book = await create_book(session,book) #create_book(book_in= book, session=session)
