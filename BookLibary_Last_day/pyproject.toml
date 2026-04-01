@@ -1,0 +1,23 @@
+[PROJECT]
+name = "Book Library api"
+version = "1.0.0"
+description = "Book api fastapi"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[all]",
+    "sqlmodel",
+    "pydantic_settings",
+    "python-joe[cryptography]",
+    "passlib[bcrypr]",
+    "python-multipart",
+    "alembic",
+    "gunicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest", 
+    "aiosqlite",
+]
+
+#Use requirements.txt and writ the toml file by hand for modern requirements

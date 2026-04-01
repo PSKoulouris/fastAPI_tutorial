@@ -1,0 +1,21 @@
+[project]
+name = "booklibrary-api"
+version = "1.0.0"
+description = "BookLibrary API built with FastAPI"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi[all]",
+    "sqlmodel",
+    "pydantic-settings",
+    "python-jose[cryptography]",
+    "passlib[bcrypt]",
+    "python-multipart",
+    "alembic",
+    "gunicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "aiosqlite",
+]

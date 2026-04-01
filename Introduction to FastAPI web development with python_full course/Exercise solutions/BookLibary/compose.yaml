@@ -1,0 +1,10 @@
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    volumes:
+      - ./static:/app/static  
+    env_file:
+      - .env                  # loads DATABASE_URL, SECRET_KEY, and other settings
